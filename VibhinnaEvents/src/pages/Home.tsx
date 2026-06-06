@@ -124,7 +124,7 @@ function Hero() {
               Plan Your Event
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-white" />
             </Link>
-            <Link to="/gallery" className="luxury-btn luxury-btn-white text-white border-white/20 hover:bg-white/10">
+            <Link to="/gallery" className="luxury-btn bg-transparent text-white border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all duration-300">
               View Our Work
             </Link>
           </motion.div>
