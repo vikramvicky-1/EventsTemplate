@@ -6,42 +6,37 @@ interface LogoProps {
 }
 
 export default function Logo({ variant = 'dark', size = 'md' }: LogoProps) {
-  const textColor = variant === 'dark' ? '#1B1F3B' : '#FFFFFF';
-  const subColor = variant === 'dark' ? '#71738A' : 'rgba(255,255,255,0.55)';
-
   const imgClass = size === 'sm' 
-    ? 'w-10 h-10' 
+    ? 'w-8 h-8' 
     : size === 'lg' 
-      ? 'w-16 h-16 lg:w-24 lg:h-24' 
-      : 'w-14 h-14';
+      ? 'w-14 h-14 lg:w-20 lg:h-20' 
+      : 'w-10 h-10';
 
   const titleClass = size === 'sm'
-    ? 'text-xl'
+    ? 'text-xs'
     : size === 'lg'
-      ? 'text-3xl lg:text-5xl'
-      : 'text-3xl';
-
-  const subClass = size === 'sm'
-    ? 'text-[0.7rem]'
-    : size === 'lg'
-      ? 'text-[0.8rem] lg:text-[1rem]'
-      : 'text-[0.75rem]';
+      ? 'text-base lg:text-xl'
+      : 'text-sm';
 
   return (
-    <Link to="/" className="inline-flex items-center gap-3 group">
-      {/* Royal Era Events Logo Image */}
+    <Link to="/" className="inline-flex items-center gap-2 group flex-shrink-0">
       <img
         src="/ReEventsLogo.png"
         alt="Royal Era Events Logo"
-        className={`object-contain flex-shrink-0 ${imgClass}`}
+        className={`object-contain flex-shrink-0 ${imgClass} transition-transform duration-500 group-hover:scale-105`}
       />
-      {/* Wordmark */}
-      <span
-        className={`font-display font-bold uppercase tracking-[0.16em] leading-none ${titleClass}`}
-        style={{ color: textColor }}
-      >
-        RE EVENTS
-      </span>
+      <div className="flex flex-col">
+        <span
+          className={`font-display font-bold tracking-[0.05em] leading-none gold-shimmer-slow ${titleClass}`}
+        >
+          Royal Era Events
+        </span>
+        {size === 'lg' && (
+          <span className="text-[0.5rem] lg:text-[0.6rem] tracking-[0.15em] uppercase text-text-secondary mt-0.5 font-body font-medium">
+            Premium Event Organiser
+          </span>
+        )}
+      </div>
     </Link>
   );
 }

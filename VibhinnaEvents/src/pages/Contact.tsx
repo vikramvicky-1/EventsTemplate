@@ -81,7 +81,7 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Full Name *</label>
+                      <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Full Name *</label>
                       <input
                         type="text"
                         required
@@ -92,7 +92,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Email *</label>
+                      <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Email *</label>
                       <input
                         type="email"
                         required
@@ -106,7 +106,7 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Phone *</label>
+                      <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Phone *</label>
                       <input
                         type="tel"
                         required
@@ -117,19 +117,19 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Event Type *</label>
+                      <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Event Type *</label>
                       <select
                         required
                         value={formData.eventType}
                         onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                        className="luxury-input"
+                        className="luxury-input font-medium"
                       >
                         <option value="">Select event type</option>
+                        <option value="birthday">Birthday Party</option>
                         <option value="wedding">Wedding</option>
                         <option value="reception">Reception</option>
                         <option value="engagement">Engagement</option>
                         <option value="corporate">Corporate Event</option>
-                        <option value="birthday">Birthday</option>
                         <option value="baby-shower">Baby Shower</option>
                         <option value="house-warming">House Warming</option>
                         <option value="anniversary">Anniversary</option>
@@ -140,7 +140,7 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Event Date</label>
+                      <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Event Date</label>
                       <input
                         type="date"
                         value={formData.date}
@@ -149,7 +149,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Expected Guests</label>
+                      <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Expected Guests</label>
                       <input
                         type="number"
                         value={formData.guests}
@@ -161,11 +161,11 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Budget Range</label>
+                    <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Budget Range</label>
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="luxury-input"
+                      className="luxury-input font-medium"
                     >
                       <option value="">Select budget range</option>
                       <option value="under-5l">Under ₹5 Lakhs</option>
@@ -177,19 +177,19 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-medium text-text-secondary mb-2 block tracking-wide uppercase">Tell Us More</label>
+                    <label className="text-xs font-semibold text-text-secondary mb-2 block tracking-wide uppercase">Tell Us More</label>
                     <textarea
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="luxury-input resize-none"
-                      placeholder="Share your vision, preferences, or any specific requirements..."
+                      placeholder="Share your vision, backdrop themes, preferences, or any specific requirements..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full luxury-btn luxury-btn-primary py-4 text-base cursor-pointer"
+                    className="w-full luxury-btn luxury-btn-primary py-4 text-base cursor-pointer text-white"
                   >
                     <Send className="w-4 h-4" />
                     Send Inquiry
@@ -210,48 +210,48 @@ export default function Contact() {
                 <h3 className="font-display text-xl font-bold mb-6 text-text-primary">Reach Us Directly</h3>
                 <div className="space-y-5">
                   <a href="tel:+917676789839" className="flex items-center gap-4 text-text-secondary hover:text-gold transition-colors group">
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
                       <Phone className="w-4 h-4 text-gold" />
                     </div>
                     <div>
-                      <p className="text-text-muted text-xs font-medium">Call Us</p>
+                      <p className="text-text-muted text-xs font-semibold">Call Us</p>
                       <p className="font-semibold text-text-primary text-sm">+91 76767 89839</p>
                     </div>
                   </a>
-                  <a href="mailto:hello@royaleraevents.com" className="flex items-center gap-4 text-text-secondary hover:text-gold transition-colors group">
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
+                  <a href="mailto:hello@vibhinnaevents.com" className="flex items-center gap-4 text-text-secondary hover:text-gold transition-colors group">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
                       <Mail className="w-4 h-4 text-gold" />
                     </div>
                     <div>
-                      <p className="text-text-muted text-xs font-medium">Email</p>
-                      <p className="font-semibold text-text-primary text-sm">hello@royaleraevents.com</p>
+                      <p className="text-text-muted text-xs font-semibold">Email</p>
+                      <p className="font-semibold text-text-primary text-sm">hello@vibhinnaevents.com</p>
                     </div>
                   </a>
                   <a href="https://wa.me/917676789839" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-text-secondary hover:text-gold transition-colors group">
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
                       <MessageCircle className="w-4 h-4 text-gold" />
                     </div>
                     <div>
-                      <p className="text-text-muted text-xs font-medium">WhatsApp</p>
+                      <p className="text-text-muted text-xs font-semibold">WhatsApp</p>
                       <p className="font-semibold text-text-primary text-sm">Chat with us</p>
                     </div>
                   </a>
-                  <a href="https://www.instagram.com/royaleraevents/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-text-secondary hover:text-gold transition-colors group">
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
+                  <a href="https://www.instagram.com/vibhinna_events/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-text-secondary hover:text-gold transition-colors group">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-border flex items-center justify-center group-hover:border-gold/30 transition-colors">
                       <Instagram className="w-4 h-4 text-gold" />
                     </div>
                     <div>
-                      <p className="text-text-muted text-xs font-medium">Instagram</p>
-                      <p className="font-semibold text-text-primary text-sm">@royaleraevents · <span className="gold-gradient font-bold">114K Followers</span></p>
+                      <p className="text-text-muted text-xs font-semibold">Instagram</p>
+                      <p className="font-semibold text-text-primary text-sm">@vibhinna_events · <span className="gold-gradient font-bold">5.0 ★ Rating</span></p>
                     </div>
                   </a>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-border flex items-center justify-center">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-white/40 border border-border flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-4 h-4 text-gold" />
                     </div>
                     <div>
-                      <p className="text-text-muted text-xs font-medium">Office</p>
-                      <p className="font-semibold text-text-primary text-sm">105, Vasanthapura Main Rd, Bikasipura, Bengaluru</p>
+                      <p className="text-text-muted text-xs font-semibold">Office</p>
+                      <p className="font-semibold text-text-primary text-sm leading-relaxed">Block 3, 277A, Dr H. Srinivasaiah Rd, Remco Bhel Layout, Stage 3, Rajarajeshwari Nagar, Bengaluru</p>
                     </div>
                   </div>
                 </div>
@@ -300,11 +300,11 @@ export default function Contact() {
             className="luxury-card overflow-hidden p-0"
           >
             <div className="aspect-[21/9] bg-bg-secondary flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.05),transparent_70%)]" />
-              <div className="text-center relative z-10">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,147,104,0.05),transparent_70%)]" />
+              <div className="text-center relative z-10 px-4">
                 <MapPin className="w-10 h-10 text-gold mx-auto mb-4" />
-                <p className="font-display text-2xl font-semibold text-text-primary">Bikasipura, Bengaluru</p>
-                <p className="text-text-muted mt-2 text-sm">105, Vasanthapura Main Rd, opp. SBI Bank, Banashankari 5th Stage</p>
+                <p className="font-display text-2xl font-semibold text-text-primary">Rajarajeshwari Nagar, Bengaluru</p>
+                <p className="text-text-muted mt-2 text-sm max-w-xl mx-auto leading-relaxed">Block 3, 277A, Dr H. Srinivasaiah Rd, Remco Bhel Layout, Stage 3, RR Nagar, Bengaluru, Karnataka 560098</p>
               </div>
             </div>
           </motion.div>

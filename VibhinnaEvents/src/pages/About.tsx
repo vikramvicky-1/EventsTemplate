@@ -13,10 +13,8 @@ const staggerContainer: Variants = {
 };
 
 const team = [
-  { name: 'Arjun Mehta', role: 'Founder & Creative Director', image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Priya Sharma', role: 'Head of Design', image: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Rahul Nair', role: 'Operations Lead', image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Ananya Reddy', role: 'Client Relations', image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400' },
+  { name: 'Kavya', role: 'Founder & Creative Director', image: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=400' },
+  { name: 'Sagar', role: 'Founder & Operations Lead', image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400' },
 ];
 
 const values = [
@@ -27,10 +25,10 @@ const values = [
 ];
 
 const achievements = [
-  { value: '3000+', label: 'Events Delivered' },
+  { value: '1200+', label: 'Events Delivered' },
   { value: '6+', label: 'Years' },
-  { value: '114K', label: 'Insta Followers' },
-  { value: '4.8★', label: 'Rating' },
+  { value: '148+', label: 'Google Reviews' },
+  { value: '5.0★', label: 'Rating' },
 ];
 
 export default function About() {
@@ -49,7 +47,7 @@ export default function About() {
               <span className="gold-shimmer italic">Celebration</span>
             </h1>
             <p className="text-text-secondary text-lg mt-6 max-w-2xl">
-              Royal Era Events was born from a simple belief: every celebration deserves to be extraordinary. We blend creativity, precision, and passion to craft events that become cherished memories.
+              Vibhinna Events was born from a simple belief: every celebration deserves to be extraordinary. We blend creativity, precision, and passion to craft events that become cherished memories.
             </p>
           </motion.div>
         </div>
@@ -73,7 +71,7 @@ export default function About() {
                 </h2>
               </div>
               <p className="text-text-secondary text-lg leading-relaxed">
-                What started as a passion project in Bengaluru has grown into one of South India's most sought-after event organisers. We've had the privilege of designing over 3000 celebrations, each one unique, each one unforgettable.
+                What started as a passion project in RR Nagar, Bengaluru has grown into one of the city's most trusted event organisers. We've had the privilege of designing over 1200 celebrations, each one unique, each one unforgettable.
               </p>
             </motion.div>
 
@@ -81,15 +79,15 @@ export default function About() {
               <div className="luxury-card flex flex-col justify-between">
                 <Globe className="w-7 h-7 text-gold" />
                 <div>
-                  <p className="font-display text-4xl font-bold gold-gradient">12+</p>
-                  <p className="text-text-muted text-sm mt-1">Cities across India</p>
+                  <p className="font-display text-4xl font-bold gold-gradient">10+</p>
+                  <p className="text-text-secondary text-sm mt-1 font-medium">Cities across India</p>
                 </div>
               </div>
               <div className="luxury-card flex flex-col justify-between">
                 <Award className="w-7 h-7 text-gold" />
                 <div>
-                  <p className="font-display text-4xl font-bold gold-gradient">25+</p>
-                  <p className="text-text-muted text-sm mt-1">Team Members</p>
+                  <p className="font-display text-4xl font-bold gold-gradient">20+</p>
+                  <p className="text-text-secondary text-sm mt-1 font-medium">Team Members</p>
                 </div>
               </div>
             </motion.div>
@@ -155,7 +153,7 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl"
           >
             {team.map((member) => (
               <motion.div key={member.name} variants={fadeInUp} className="group">
@@ -168,7 +166,7 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <h3 className="font-display text-lg font-bold text-text-primary">{member.name}</h3>
-                <p className="text-text-muted text-sm">{member.role}</p>
+                <p className="text-text-secondary text-sm">{member.role}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -177,7 +175,7 @@ export default function About() {
 
       {/* Achievements */}
       <section className="py-24 px-6 lg:px-12 bg-bg-secondary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.04),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,147,104,0.04),transparent_70%)]" />
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial="hidden"
@@ -189,7 +187,7 @@ export default function About() {
             {achievements.map((a) => (
               <motion.div key={a.label} variants={fadeInUp} className="text-center">
                 <p className="font-display text-5xl lg:text-6xl font-bold gold-shimmer">{a.value}</p>
-                <p className="text-text-muted mt-3 text-xs tracking-[0.2em] uppercase">{a.label}</p>
+                <p className="text-text-secondary mt-3 text-xs tracking-[0.2em] uppercase font-semibold">{a.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -215,7 +213,7 @@ export default function About() {
             to="/contact"
             className="luxury-btn luxury-btn-primary mt-8"
           >
-            Get in Touch <ArrowRight className="w-4 h-4" />
+            Get in Touch <ArrowRight className="w-4 h-4 text-white" />
           </Link>
         </motion.div>
       </section>

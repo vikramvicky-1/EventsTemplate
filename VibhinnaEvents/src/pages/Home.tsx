@@ -29,7 +29,7 @@ const scaleIn: Variants = {
 
 // Trust Marquee
 function TrustMarquee() {
-  const items = ['3000+ Events', '6+ Years', 'Weddings', 'Corporate', 'Decor', 'Photography', 'Catering', 'DJ', 'Venue Booking'];
+  const items = ['1200+ Events', '6+ Years', '5.0★ Google Rated', 'RR Nagar, Bengaluru', 'Weddings', 'First Birthday Parties', 'Theme Decorations', 'Photography', 'Catering'];
   const doubled = [...items, ...items];
   
   return (
@@ -73,7 +73,7 @@ function Hero() {
           <motion.img
             key={currentImageIndex}
             src={heroImages[currentImageIndex]}
-            alt="Luxury wedding celebration"
+            alt="Luxury event celebration"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -100,7 +100,7 @@ function Hero() {
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
             className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight"
           >
-            Crafting<br />
+            <span className="text-white">Crafting</span><br />
             <span className="gold-shimmer italic">Extraordinary</span><br />
             <span className="text-white">Celebrations</span>
           </motion.h1>
@@ -109,7 +109,7 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-text-secondary text-lg lg:text-xl max-w-lg leading-relaxed mt-8"
+            className="text-white/80 text-lg lg:text-xl max-w-lg leading-relaxed mt-8"
           >
             From intimate gatherings to grand celebrations, we design and execute events that leave lasting impressions.
           </motion.p>
@@ -122,9 +122,9 @@ function Hero() {
           >
             <Link to="/contact" className="luxury-btn luxury-btn-primary group">
               Plan Your Event
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-white" />
             </Link>
-            <Link to="/gallery" className="luxury-btn luxury-btn-white">
+            <Link to="/gallery" className="luxury-btn luxury-btn-white text-white border-white/20 hover:bg-white/10">
               View Our Work
             </Link>
           </motion.div>
@@ -134,23 +134,23 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="grid grid-cols-2 gap-y-6 gap-x-8 sm:flex sm:flex-wrap sm:gap-10 mt-16 pt-8 border-t border-white/10"
+            className="grid grid-cols-2 gap-y-6 gap-x-8 sm:flex sm:flex-wrap sm:gap-10 mt-16 pt-8 border-t border-white/10 text-white"
           >
             <div>
-              <p className="font-display text-3xl font-bold gold-gradient">3000+</p>
-              <p className="text-text-muted text-xs mt-1 tracking-wider uppercase">Events</p>
+              <p className="font-display text-3xl font-bold gold-gradient">1200+</p>
+              <p className="text-white/60 text-xs mt-1 tracking-wider uppercase">Events</p>
             </div>
             <div>
               <p className="font-display text-3xl font-bold gold-gradient">6+</p>
-              <p className="text-text-muted text-xs mt-1 tracking-wider uppercase">Years</p>
+              <p className="text-white/60 text-xs mt-1 tracking-wider uppercase">Years</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-bold gold-gradient">114K</p>
-              <p className="text-text-muted text-xs mt-1 tracking-wider uppercase">Followers</p>
+              <p className="font-display text-3xl font-bold gold-gradient">148+</p>
+              <p className="text-white/60 text-xs mt-1 tracking-wider uppercase">Reviews</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-bold gold-gradient">4.8★</p>
-              <p className="text-text-muted text-xs mt-1 tracking-wider uppercase">Rating</p>
+              <p className="font-display text-3xl font-bold gold-gradient">5.0★</p>
+              <p className="text-white/60 text-xs mt-1 tracking-wider uppercase">Rating</p>
             </div>
           </motion.div>
         </div>
@@ -180,23 +180,23 @@ function BrandStory() {
               </h2>
             </div>
             <p className="text-text-secondary text-lg leading-relaxed mt-8">
-              Born from a passion for celebration, Royal Era Events transforms ordinary moments into extraordinary memories. Every event is a masterpiece of creativity, precision, and heart.
+              Born from a passion for celebration, Vibhinna Events transforms ordinary moments into extraordinary memories. Every event is a masterpiece of creativity, precision, and heart.
             </p>
           </motion.div>
 
           <motion.div variants={fadeInUp} className="lg:col-span-7 grid grid-cols-2 gap-6">
             {[
               { icon: Award, value: '6+', label: 'Years of Experience', color: 'from-gold/10 to-transparent' },
-              { icon: Calendar, value: '3000+', label: 'Events Delivered', color: 'from-gold/5 to-transparent' },
-              { icon: MapPin, value: '12+', label: 'Cities Covered', color: 'from-gold/10 to-transparent' },
-              { icon: Users, value: '25+', label: 'Dedicated Team Members', color: 'from-gold/5 to-transparent' },
+              { icon: Calendar, value: '1200+', label: 'Events Delivered', color: 'from-gold/5 to-transparent' },
+              { icon: MapPin, value: '10+', label: 'Cities Covered', color: 'from-gold/10 to-transparent' },
+              { icon: Users, value: '20+', label: 'Dedicated Team Members', color: 'from-gold/5 to-transparent' },
             ].map((stat) => (
               <div key={stat.label} className={`luxury-card bg-bg-secondary relative overflow-hidden flex flex-col justify-between`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} pointer-events-none`} />
                 <stat.icon className="w-7 h-7 text-gold relative z-10" />
                 <div className="relative z-10 mt-6">
                   <p className="font-display text-3xl sm:text-4xl font-bold gold-gradient">{stat.value}</p>
-                  <p className="text-text-muted text-xs sm:text-sm mt-1 font-medium">{stat.label}</p>
+                  <p className="text-text-secondary text-xs sm:text-sm mt-1 font-medium">{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -355,8 +355,8 @@ function FeaturedEvents() {
   );
 }
 
-// Why Royal Era Events
-function WhyReEvents() {
+// Why Vibhinna Events
+function WhyVibhinnaEvents() {
   const features = [
     { icon: CheckCircle2, title: 'End-to-End Planning', desc: 'From concept to cleanup, we handle everything so you can enjoy every moment.' },
     { icon: Award, title: 'Premium Vendors', desc: 'Access to our curated network of the finest vendors and suppliers.' },
@@ -379,7 +379,7 @@ function WhyReEvents() {
         >
           <span className="text-gold text-xs font-medium tracking-[0.25em] uppercase">Why Choose Us</span>
           <h2 className="font-display text-4xl lg:text-6xl font-bold mt-4 text-text-primary">
-            Why <span className="gold-shimmer italic">Royal Era Events</span>
+            Why <span className="gold-shimmer italic">Vibhinna Events</span>
           </h2>
         </motion.div>
 
@@ -491,7 +491,7 @@ function AnimatedStat({ end, suffix, decimals, label }: { end: number; suffix: s
   return (
     <div ref={ref} className="text-center">
       <p className="font-display text-5xl lg:text-7xl font-bold gold-shimmer counter-value">{value}</p>
-      <p className="text-text-muted mt-4 text-xs tracking-[0.2em] uppercase font-medium">{label}</p>
+      <p className="text-text-secondary mt-4 text-xs tracking-[0.2em] uppercase font-semibold">{label}</p>
     </div>
   );
 }
@@ -500,7 +500,7 @@ function StatsSection() {
   return (
     <section className="py-28 px-6 lg:px-12 bg-bg-secondary relative overflow-hidden">
       {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.04),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,147,104,0.04),transparent_70%)]" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -514,10 +514,10 @@ function StatsSection() {
         </motion.div>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          <AnimatedStat end={3000} suffix="+" decimals={0} label="Events Delivered" />
+          <AnimatedStat end={1200} suffix="+" decimals={0} label="Events Delivered" />
           <AnimatedStat end={6} suffix="+" decimals={0} label="Years Experience" />
-          <AnimatedStat end={4.8} suffix="" decimals={1} label="Client Rating" />
-          <AnimatedStat end={114} suffix="K" decimals={0} label="Instagram Followers" />
+          <AnimatedStat end={5.0} suffix="" decimals={1} label="Client Rating" />
+          <AnimatedStat end={148} suffix="+" decimals={0} label="Google Reviews" />
         </div>
       </div>
     </section>
@@ -538,12 +538,12 @@ function Testimonials() {
   };
 
   const testimonials = [
-    { name: 'Priya & Rahul', event: 'Wedding', text: 'Royal Era Events made our dream wedding a reality. Every detail was perfect, from the floral arrangements to the catering. Our guests are still talking about it!', rating: 5 },
-    { name: 'Ananya Sharma', event: 'Birthday', text: 'The team went above and beyond for my daughter\'s first birthday. The theme, the decor, the cake — everything was magical.', rating: 5 },
-    { name: 'TechVista Corp', event: 'Corporate', text: 'Professional, creative, and incredibly organized. Our annual gala was the best one yet thanks to Royal Era Events\' meticulous planning.', rating: 5 },
-    { name: 'Meera & Karthik', event: 'Reception', text: 'We trusted Royal Era Events with our reception and they exceeded every expectation. The venue transformation was breathtaking.', rating: 5 },
-    { name: 'Sneha Patel', event: 'Baby Shower', text: 'The most beautiful baby shower I could have imagined. The pastel theme, the games, the food — absolutely perfect.', rating: 5 },
-    { name: 'Rajesh Kumar', event: 'House Warming', text: 'Royal Era Events turned our house warming into a memorable celebration. The decor was elegant and the coordination was flawless.', rating: 5 },
+    { name: 'Rishabh Jain', event: '1st Birthday Party', text: "We are absolutely blown away by the incredible job Vibhinna Events did for our daughter's first birthday party! To say they were amazing is an understatement. From our very first chat, they were professional, creative, and understood exactly what we wanted. The butterfly theme decoration was stunning.", rating: 5 },
+    { name: 'Prabhanjan R.S.', event: 'Butterfly Birthday Theme', text: 'We partnered with Vibhinna Events for our child’s first birthday, and they exceeded our expectations in every way. We chose a butterfly theme backdrop and cake, and the décor along with Baby’s photo gallery was absolutely stunning — every detail was perfect.', rating: 5 },
+    { name: 'Mandeep Dhama', event: 'Event Celebration', text: 'Indeed it was best. Everything was on point aesthetically and professionally. Would definitely refer if someone is looking for the same requirement. Value for money and exceptional commitment.', rating: 5 },
+    { name: 'Kavya & Sagar Appreciators', event: 'Family Function', text: 'We appreciate the commitment Kavya & Sagar gave for the work quality. The setup, organization, and overall arrangements were absolutely wonderful. They gave us wonderful memories.', rating: 5 },
+    { name: 'Sagar K.', event: 'Wedding Decoration', text: 'Excellent event management team. The decoration was extremely elegant and done exactly as discussed. Highly recommend their services for traditional and modern decors.', rating: 5 },
+    { name: 'Neha Sharma', event: 'Baby Shower', text: 'The baby shower decoration and arrangement were absolutely beautiful. Everyone loved the theme and setup. Thank you Vibhinna Events for making it so special!', rating: 5 },
   ];
 
   return (
@@ -569,7 +569,7 @@ function Testimonials() {
                 <Star key={i} className="w-4 h-4 fill-gold text-gold" />
               ))}
             </div>
-            <span className="text-text-secondary text-sm">4.8 average from 179 Google Reviews</span>
+            <span className="text-text-secondary text-sm">5.0 average from 148 Google Reviews</span>
           </div>
         </motion.div>
 
@@ -625,15 +625,15 @@ function Testimonials() {
 // Event Categories
 function EventCategories() {
   const categories = [
-    { name: 'Wedding', image: 'https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600', count: '350+' },
-    { name: 'Reception', image: 'https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=600', count: '200+' },
-    { name: 'Engagement', image: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=600', count: '120+' },
-    { name: 'Corporate', image: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=600', count: '180+' },
-    { name: 'Birthday', image: 'https://images.pexels.com/photos/1128905/pexels-photo-1128905.jpeg?auto=compress&cs=tinysrgb&w=600', count: '250+' },
-    { name: 'Baby Shower', image: 'https://images.pexels.com/photos/1194021/pexels-photo-1194021.jpeg?auto=compress&cs=tinysrgb&w=600', count: '80+' },
-    { name: 'House Warming', image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600', count: '60+' },
-    { name: 'Anniversary', image: 'https://images.pexels.com/photos/1670723/pexels-photo-1670723.jpeg?auto=compress&cs=tinysrgb&w=600', count: '90+' },
-    { name: 'Private Parties', image: 'https://images.pexels.com/photos/2291510/pexels-photo-2291510.jpeg?auto=compress&cs=tinysrgb&w=600', count: '100+' },
+    { name: 'Birthday Party', image: '/images/birthday_decor.png', count: '450+' },
+    { name: 'Wedding', image: '/images/wedding_mandap.png', count: '300+' },
+    { name: 'Reception', image: '/images/reception_decor.png', count: '180+' },
+    { name: 'Engagement', image: '/images/haldi_ceremony.png', count: '100+' },
+    { name: 'House Warming', image: '/images/housewarming_decor.png', count: '60+' },
+    { name: 'Baby Shower', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600', count: '80+' },
+    { name: 'Decor & Design', image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=600', count: '220+' },
+    { name: 'Corporate Event', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=600', count: '90+' },
+    { name: 'Private Celebrations', image: 'https://images.unsplash.com/photo-1291510/pexels-photo-2291510.jpeg?auto=compress&cs=tinysrgb&w=600', count: '80+' },
   ];
 
   return (
@@ -671,6 +671,7 @@ function EventCategories() {
                 src={cat.image}
                 alt={cat.name}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -692,10 +693,10 @@ function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   
   const faqs = [
-    { q: 'How far in advance should I book?', a: 'We recommend booking at least 3-6 months in advance for weddings and large events. For smaller celebrations, 4-6 weeks is usually sufficient. However, we always try to accommodate last-minute requests when possible.' },
+    { q: 'How far in advance should I book?', a: 'We recommend booking at least 2-4 months in advance for birthday decors and weddings. For smaller celebrations, 2-4 weeks is usually sufficient. However, we always try to accommodate last-minute requests when possible.' },
     { q: 'What is your pricing structure?', a: 'Our pricing is customized based on your event requirements, scale, and preferences. We offer transparent quotes with no hidden costs. Book a consultation to receive a detailed proposal tailored to your needs.' },
     { q: 'Do you work with external vendors?', a: 'Yes! While we have a curated network of premium vendors, we\'re happy to collaborate with your preferred vendors. We ensure seamless coordination regardless of the vendor source.' },
-    { q: 'What is the typical planning timeline?', a: 'Weddings typically require 4-6 months of planning. Corporate events 2-3 months. Birthday celebrations and smaller events 4-8 weeks. We create detailed timelines during our initial consultation.' },
+    { q: 'What is the typical planning timeline?', a: 'Weddings typically require 3-5 months of planning. Corporate events 1-2 months. Birthday celebrations and smaller events 2-4 weeks. We create detailed timelines during our initial consultation.' },
     { q: 'How do I start the booking process?', a: 'Simply reach out through our contact form, WhatsApp, or give us a call. We\'ll schedule a free consultation to understand your vision and provide a customized proposal within 48 hours.' },
   ];
 
@@ -762,7 +763,7 @@ function FinalCTA() {
   return (
     <section className="py-24 px-6 lg:px-12 bg-bg-secondary relative overflow-hidden">
       {/* Radial gold glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,147,104,0.06),transparent_70%)]" />
       
       <motion.div
         initial="hidden"
@@ -790,7 +791,7 @@ function FinalCTA() {
             href="https://wa.me/917676789839"
             target="_blank"
             rel="noopener noreferrer"
-            className="luxury-btn luxury-btn-primary bg-[#25D366] border-[#25D366] hover:bg-[#20BD5A]"
+            className="luxury-btn luxury-btn-primary bg-[#25D366] border-[#25D366] hover:bg-[#20BD5A] text-white"
             style={{ background: 'linear-gradient(135deg, #25D366, #20BD5A)', borderColor: '#25D366' }}
           >
             <MessageCircle className="w-5 h-5" />
@@ -817,7 +818,7 @@ export default function Home() {
       <BrandStory />
       <Services />
       <FeaturedEvents />
-      <WhyReEvents />
+      <WhyVibhinnaEvents />
       <EventJourney />
       <StatsSection />
       <Testimonials />

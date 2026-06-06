@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Heart, Briefcase, Cake, Baby, Home, Gem, Sparkles,
   Palette, Camera, Music, UtensilsCrossed, MapPinned,
-  ArrowRight, ArrowUpRight, CheckCircle2, Calendar, Users
+  ArrowRight, CheckCircle2
 } from 'lucide-react';
 
 const fadeInUp: Variants = {
@@ -85,6 +85,7 @@ export default function Services() {
                   src={service.image}
                   alt={service.name}
                   className={`w-full object-cover ${i === 0 ? 'h-full min-h-[450px]' : 'h-80'}`}
+                  loading="lazy"
                 />
                 <div className={`card-content absolute inset-0 flex flex-col justify-end ${i === 0 ? 'p-8' : 'p-6'}`}>
                   <service.icon className="w-8 h-8 text-gold mb-4 group-hover:scale-110 transition-transform duration-300" />
@@ -162,7 +163,7 @@ export default function Services() {
             to="/contact"
             className="luxury-btn luxury-btn-primary mt-8"
           >
-            Get Started <ArrowRight className="w-4 h-4" />
+            Get Started <ArrowRight className="w-4 h-4 text-white" />
           </Link>
         </motion.div>
       </section>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Heart, Briefcase, Cake, Baby, Home, Gem, Sparkles,
   Palette, Camera, Music, UtensilsCrossed, MapPinned,
-  ArrowRight, CheckCircle2, Calendar, Users
+  ArrowRight, CheckCircle2
 } from 'lucide-react';
 
 const fadeInUp: Variants = {
@@ -16,19 +16,24 @@ const staggerContainer: Variants = {
   visible: { transition: { staggerChildren: 0.1 } }
 };
 
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } }
+};
+
 const services = [
-  { icon: Heart, name: 'Wedding Experiences', desc: 'From intimate ceremonies to grand celebrations, we craft weddings that reflect your unique love story. Our team handles everything from venue selection to the last dance.', features: ['Venue Selection & Booking', 'Theme & Decor Design', 'Vendor Coordination', 'Day-of Management', 'Guest Management'] },
-  { icon: Briefcase, name: 'Corporate Events', desc: 'Professional gatherings that leave lasting impressions. From product launches to annual galas, we deliver corporate events that align with your brand.', features: ['Conference Planning', 'Product Launches', 'Team Building Events', 'Award Ceremonies', 'Brand Activations'] },
-  { icon: Cake, name: 'Birthday Celebrations', desc: 'Milestone moments deserve extraordinary celebrations. We create themed birthday parties that delight guests of all ages.', features: ['Theme Design', 'Entertainment Booking', 'Custom Cakes', 'Party Favors', 'Photography'] },
-  { icon: Baby, name: 'Baby Showers', desc: 'Welcome new beginnings with beautiful celebrations. We design intimate and joyful baby showers with attention to every detail.', features: ['Theme & Decor', 'Games & Activities', 'Catering', 'Photography', 'Return Gifts'] },
-  { icon: Home, name: 'House Warming', desc: 'Celebrate your new home with style. We create warm and memorable house warming ceremonies that honor traditions while feeling fresh and modern.', features: ['Traditional Decor', 'Modern Styling', 'Catering', 'Photography', 'Guest Coordination'] },
-  { icon: Gem, name: 'Engagements', desc: 'The start of forever deserves a perfect beginning. We design engagement ceremonies that are romantic, elegant, and unforgettable.', features: ['Gem Ceremony Setup', 'Decor Design', 'Photography', 'Entertainment', 'Catering'] },
-  { icon: Sparkles, name: 'Receptions', desc: 'Grand celebrations of togetherness. We create stunning reception events that bring families and friends together in style.', features: ['Venue Transformation', 'Stage Design', 'Entertainment', 'Multi-cuisine Catering', 'Photography & Video'] },
-  { icon: Palette, name: 'Decor & Design', desc: 'Transform any space into a visual masterpiece. Our design team creates stunning environments that set the perfect mood for your celebration.', features: ['Floral Design', 'Lighting Design', 'Stage Design', 'Table Styling', 'Thematic Decor'] },
-  { icon: Camera, name: 'Photography & Videography', desc: 'Capture every precious moment with our network of talented photographers and videographers who tell your story beautifully.', features: ['Candid Photography', 'Cinematic Films', 'Drone Coverage', 'Photo Booths', 'Same-Day Edits'] },
-  { icon: Music, name: 'Entertainment', desc: 'From live bands to DJs, from dancers to performers — we curate entertainment that keeps your guests engaged and dancing.', features: ['DJ Services', 'Live Bands', 'Dance Performances', 'MC/Emcee', 'Sound & Lighting'] },
-  { icon: UtensilsCrossed, name: 'Catering', desc: 'Culinary experiences that delight the palate. We partner with the finest caterers to create menus that impress every guest.', features: ['Multi-cuisine Menus', 'Live Counters', 'Custom Cakes', 'Bar Services', 'Dietary Accommodations'] },
-  { icon: MapPinned, name: 'Venue Booking', desc: 'Find the perfect location for your event. We have partnerships with premium venues across multiple cities.', features: ['Venue Scouting', 'Negotiation', 'Site Visits', 'Contract Review', 'Layout Planning'] },
+  { icon: Heart, name: 'Wedding Experiences', desc: 'From intimate ceremonies to grand celebrations, we craft weddings that reflect your unique love story. Our team handles everything from venue selection to the last dance.', features: ['Venue Selection & Booking', 'Theme & Decor Design', 'Vendor Coordination', 'Day-of Management', 'Guest Management'], image: '/images/wedding_mandap.png' },
+  { icon: Cake, name: 'Birthday Celebrations', desc: 'Milestone moments deserve extraordinary celebrations. We create themed birthday parties that delight guests of all ages.', features: ['Theme Design', 'Entertainment Booking', 'Custom Cakes', 'Party Favors', 'Photography'], image: '/images/birthday_decor.png' },
+  { icon: Sparkles, name: 'Receptions', desc: 'Grand celebrations of togetherness. We create stunning reception events that bring families and friends together in style.', features: ['Venue Transformation', 'Stage Design', 'Entertainment', 'Multi-cuisine Catering', 'Photography & Video'], image: '/images/reception_decor.png' },
+  { icon: Home, name: 'House Warming', desc: 'Celebrate your new home with style. We create warm and memorable house warming ceremonies that honor traditions while feeling fresh and modern.', features: ['Traditional Decor', 'Modern Styling', 'Catering', 'Photography', 'Guest Coordination'], image: '/images/housewarming_decor.png' },
+  { icon: Gem, name: 'Engagements', desc: 'The start of forever deserves a perfect beginning. We design engagement ceremonies that are romantic, elegant, and unforgettable, including traditional Haldi decorations.', features: ['Ceremony Setup', 'Decor Design', 'Photography', 'Entertainment', 'Catering'], image: '/images/haldi_ceremony.png' },
+  { icon: Baby, name: 'Baby Showers', desc: 'Welcome new beginnings with beautiful celebrations. We design intimate and joyful baby showers with attention to every detail.', features: ['Theme & Decor', 'Games & Activities', 'Catering', 'Photography', 'Return Gifts'], image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800' },
+  { icon: Palette, name: 'Decor & Design', desc: 'Transform any space into a visual masterpiece. Our design team creates stunning environments that set the perfect mood for your celebration.', features: ['Floral Design', 'Lighting Design', 'Stage Design', 'Table Styling', 'Thematic Decor'], image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800' },
+  { icon: Camera, name: 'Photography & Videography', desc: 'Capture every precious moment with our network of talented photographers and videographers who tell your story beautifully.', features: ['Candid Photography', 'Cinematic Films', 'Drone Coverage', 'Photo Booths', 'Same-Day Edits'], image: 'https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?auto=format&fit=crop&q=80&w=800' },
+  { icon: Music, name: 'Entertainment', desc: 'From live bands to DJs, from dancers to performers — we curate entertainment that keeps your guests engaged and dancing.', features: ['DJ Services', 'Live Bands', 'Dance Performances', 'MC/Emcee', 'Sound & Lighting'], image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800' },
+  { icon: UtensilsCrossed, name: 'Catering', desc: 'Culinary experiences that delight the palate. We partner with the finest caterers to create menus that impress every guest.', features: ['Multi-cuisine Menus', 'Live Counters', 'Custom Cakes', 'Bar Services', 'Dietary Accommodations'], image: '/images/catering_decor.png' },
+  { icon: MapPinned, name: 'Venue Booking', desc: 'Find the perfect location for your event. We have partnerships with premium venues across multiple cities.', features: ['Venue Scouting', 'Negotiation', 'Site Visits', 'Contract Review', 'Layout Planning'], image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800' },
+  { icon: Briefcase, name: 'Corporate Events', desc: 'Professional gatherings that leave lasting impressions. From product launches to annual galas, we deliver corporate events that align with your brand.', features: ['Conference Planning', 'Product Launches', 'Team Building Events', 'Award Ceremonies', 'Brand Activations'], image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800' },
 ];
 
 const process = [
@@ -57,7 +62,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid with Images */}
       <section className="py-16 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -68,34 +73,35 @@ export default function Services() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {services.map((service, i) => {
-              const bgColors = [
-                'bg-accent-sage',
-                'bg-accent-lavender',
-                'bg-accent-rose',
-                'bg-accent-clay'
-              ];
-              const bgClass = i === 0 ? 'bg-charcoal text-white border-charcoal' : `${bgColors[i % bgColors.length]} text-charcoal border-charcoal`;
               return (
                 <motion.div
                   key={service.name}
-                  variants={fadeInUp}
-                  className={`bento-card group border-[3px] ${bgClass} ${i === 0 ? 'lg:col-span-2' : ''}`}
+                  variants={scaleIn}
+                  className={`service-image-card group ${i === 0 ? 'lg:col-span-2' : ''}`}
                 >
-                  <service.icon className={`w-10 h-10 text-gold mb-6 group-hover:scale-110 transition-transform duration-300`} />
-                  <h3 className={`font-display font-black ${i === 0 ? 'text-3xl' : 'text-2xl'}`}>
-                    {service.name}
-                  </h3>
-                  <p className={`mt-3 ${i === 0 ? 'text-white/70 text-lg' : 'text-charcoal/70'}`}>
-                    {service.desc}
-                  </p>
-                  <ul className={`mt-6 space-y-2 ${i === 0 ? 'grid md:grid-cols-2 gap-x-8' : ''}`}>
-                    {service.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className={`w-4 h-4 flex-shrink-0 text-gold`} />
-                        <span className={i === 0 ? 'text-white/70 font-semibold' : 'text-charcoal/80 font-semibold'}>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className={`w-full object-cover ${i === 0 ? 'h-full min-h-[450px]' : 'h-80'}`}
+                    loading="lazy"
+                  />
+                  <div className={`card-content absolute inset-0 flex flex-col justify-end ${i === 0 ? 'p-8' : 'p-6'}`}>
+                    <service.icon className="w-8 h-8 text-gold mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className={`font-display font-bold text-white ${i === 0 ? 'text-3xl' : 'text-xl'}`}>
+                      {service.name}
+                    </h3>
+                    <p className={`text-white/60 mt-2 ${i === 0 ? 'text-base' : 'text-sm'}`}>
+                      {service.desc}
+                    </p>
+                    <ul className={`mt-4 space-y-1.5 ${i === 0 ? 'grid md:grid-cols-2 gap-x-6 gap-y-1.5 space-y-0' : ''}`}>
+                      {service.features.map((f) => (
+                        <li key={f} className="flex items-center gap-2 text-sm">
+                          <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0 text-gold" />
+                          <span className="text-white/50 group-hover:text-white/70 transition-colors duration-300">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </motion.div>
               );
             })}

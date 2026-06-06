@@ -18,20 +18,17 @@ const scaleIn: Variants = {
 };
 
 const reviews = [
-  { name: 'Priya & Rahul', event: 'Wedding', date: 'December 2024', text: 'Royal Era Events made our dream wedding a reality. Every single detail was perfect — from the breathtaking floral arrangements to the seamless coordination on the day. Our guests are still talking about how beautiful everything was. The team went above and beyond our expectations.', rating: 5 },
-  { name: 'Ananya Sharma', event: 'Birthday', date: 'November 2024', text: "The team went above and beyond for my daughter's first birthday. The pastel theme was executed flawlessly, the games kept everyone entertained, and the cake was a work of art. Couldn't have asked for a better celebration.", rating: 5 },
-  { name: 'TechVista Corporation', event: 'Corporate Gala', date: 'October 2024', text: 'Professional, creative, and incredibly organized. Our annual gala was the best one yet thanks to Royal Era Events. They handled 500+ guests seamlessly and the AV setup was flawless. Already booked them for next year.', rating: 5 },
-  { name: 'Meera & Karthik', event: 'Reception', date: 'September 2024', text: 'We trusted Royal Era Events with our reception and they exceeded every expectation. The venue transformation was absolutely breathtaking. The lighting, the stage design, the food — everything was world-class.', rating: 5 },
-  { name: 'Sneha Patel', event: 'Baby Shower', date: 'August 2024', text: 'The most beautiful baby shower I could have imagined. The pastel theme, the personalized games, the food — absolutely perfect. Royal Era Events understood exactly what I wanted and delivered beyond my dreams.', rating: 5 },
-  { name: 'Rajesh & Family', event: 'House Warming', date: 'July 2024', text: "Royal Era Events turned our house warming into a truly memorable celebration. The decor was elegant and sophisticated, the coordination was flawless, and they managed everything so we could enjoy every moment with our guests.", rating: 5 },
-  { name: 'Deepa Krishnan', event: 'Engagement', date: 'June 2024', text: 'Our engagement ceremony was everything we dreamed of and more. The ring ceremony setup was gorgeous, the photography captured every emotion perfectly. Thank you Royal Era Events for making our special day so magical!', rating: 5 },
-  { name: 'Vikram Singh', event: 'Corporate Event', date: 'May 2024', text: 'We hired Royal Era Events for our product launch and they delivered beyond expectations. The venue, the branding, the guest experience — everything was top-notch. Highly recommend for corporate events.', rating: 5 },
-  { name: 'Lakshmi & Arun', event: 'Anniversary', date: 'April 2024', text: 'Our 25th anniversary celebration was absolutely perfect. Royal Era Events created such a warm and elegant atmosphere. The photo wall of our journey together brought tears to everyone\'s eyes. Truly unforgettable.', rating: 5 },
+  { name: 'Rishabh Jain', event: '1st Birthday Party', date: '6 months ago', text: "We are absolutely blown away by the incredible job Vibhinna Events did for our daughter's first birthday party! To say they were amazing is an understatement. From our very first chat, they were professional, creative, and understood exactly what we wanted. The butterfly theme decoration was stunning.", rating: 5 },
+  { name: 'Prabhanjan R.S.', event: 'Child\'s Birthday Party', date: '6 months ago', text: "We partnered with Vibhinna Events for our child’s first birthday, and they exceeded our expectations in every way. We chose a butterfly theme backdrop and cake, and the décor along with Baby’s photo gallery was absolutely stunning — every detail was beautiful.", rating: 5 },
+  { name: 'Mandeep Dhama', event: 'Event Celebration', date: '5 months ago', text: "Indeed it was best. Everything was on point aesthetically and professionally. Would definitely refer if someone is looking for the same requirement.", rating: 5 },
+  { name: 'Kavya & Sagar Appreciators', event: 'Family Function', date: '6 months ago', text: "We appreciate the commitment Kavya & Sagar gave for the work quality. The setup, organization, and overall arrangements were absolutely wonderful. Value for money.", rating: 5 },
+  { name: 'Sagar K.', event: 'Wedding Decoration', date: '4 months ago', text: 'Excellent event management team. The decoration was extremely elegant and done exactly as discussed. Highly recommend their services for traditional and modern decors.', rating: 5 },
+  { name: 'Neha Sharma', event: 'Baby Shower', date: '3 months ago', text: 'The baby shower decoration and arrangement were absolutely beautiful. Everyone loved the theme and setup. Thank you Vibhinna Events for making it so special!', rating: 5 },
 ];
 
 const stats = [
-  { value: '4.8', label: 'Google Rating', icon: Star },
-  { value: '179', label: 'Google Reviews', icon: Quote },
+  { value: '5.0', label: 'Google Rating', icon: Star },
+  { value: '148', label: 'Google Reviews', icon: Quote },
   { value: '100%', label: 'Recommendation Rate', icon: Star },
 ];
 
@@ -51,7 +48,7 @@ export default function Reviews() {
               <span className="gold-shimmer italic">Our Clients</span>
             </h1>
             <p className="text-text-secondary text-lg mt-6 max-w-2xl">
-              Don't just take our word for it. Here's what our clients have to say about their Royal Era Events experience.
+              Don't just take our word for it. Here's what our clients have to say about their Vibhinna Events experience.
             </p>
           </motion.div>
         </div>
@@ -71,7 +68,7 @@ export default function Reviews() {
               <motion.div key={stat.label} variants={fadeInUp} className="luxury-card text-center group">
                 <stat.icon className="w-7 h-7 text-gold mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                 <p className="font-display text-4xl font-bold gold-shimmer">{stat.value}</p>
-                <p className="text-text-muted text-sm mt-2">{stat.label}</p>
+                <p className="text-text-secondary text-sm mt-2">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -88,7 +85,7 @@ export default function Reviews() {
             className="luxury-card bg-bg-secondary flex flex-col md:flex-row items-center justify-between gap-6"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-border">
                 <span className="text-2xl font-bold text-blue-500">G</span>
               </div>
               <div>
@@ -99,12 +96,14 @@ export default function Reviews() {
                       <Star key={i} className="w-4 h-4 fill-gold text-gold" />
                     ))}
                   </div>
-                  <span className="text-text-muted text-sm">4.8 out of 5</span>
+                  <span className="text-text-secondary text-sm">5.0 out of 5</span>
                 </div>
               </div>
             </div>
             <a
-              href="#"
+              href="https://www.google.com/maps"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-gold hover:text-gold-light border border-border hover:border-gold px-4 py-2 rounded-full transition-all duration-300 text-sm"
             >
               View on Google <ExternalLink className="w-4 h-4" />
@@ -163,13 +162,13 @@ export default function Reviews() {
             Be Our Next <span className="gold-shimmer italic">Happy Client</span>
           </h2>
           <p className="text-text-secondary text-lg mt-6">
-            Join hundreds of satisfied clients who trusted Royal Era Events with their most important celebrations.
+            Join hundreds of satisfied clients who trusted Vibhinna Events with their most important celebrations.
           </p>
           <Link
             to="/contact"
             className="luxury-btn luxury-btn-primary mt-8"
           >
-            Start Planning <ArrowRight className="w-4 h-4" />
+            Start Planning <ArrowRight className="w-4 h-4 text-white" />
           </Link>
         </motion.div>
       </section>

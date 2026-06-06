@@ -1,11 +1,11 @@
-import { motion, useScroll, useTransform, Variants } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, ArrowUpRight, Star, MapPin, Users, Calendar,
   Heart, Briefcase, Cake, Baby, Home as HomeIcon, Gem,
   Camera, Music, UtensilsCrossed, MapPinned, Sparkles,
-  Phone, MessageCircle, ChevronDown, ChevronUp, Play,
+  Phone, MessageCircle, ChevronDown, ChevronUp,
   Award, Clock, Shield, Palette, Wallet, Globe, Eye,
   CheckCircle2, Quote
 } from 'lucide-react';
@@ -31,7 +31,7 @@ const scaleIn: Variants = {
 function TrustMarquee() {
   const items = ['1050+ Events', '5+ Years', 'Weddings', 'Corporate', 'Decor', 'Photography', 'Catering', 'DJ', 'Venue Booking'];
   const doubled = [...items, ...items];
-  
+
   return (
     <section className="py-12 border-y border-border overflow-hidden">
       <div className="animate-marquee flex whitespace-nowrap">
@@ -46,15 +46,46 @@ function TrustMarquee() {
   );
 }
 
-// Hero Section
+// Hero Section with Slideshow Background
 function Hero() {
+  const heroImages = [
+    '/images/wedding_mandap.png',
+    '/images/birthday_decor.png',
+    '/images/haldi_ceremony.png',
+    '/images/housewarming_decor.png',
+    '/images/reception_decor.png'
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // changes image every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center pt-28 lg:pt-32 pb-16 px-6 lg:px-12 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-gold/3 rounded-full blur-3xl" />
-      
-      <motion.div className="w-full max-w-7xl mx-auto relative z-10">
+    <section className="relative min-h-screen flex items-center pt-28 lg:pt-32 pb-16 overflow-hidden">
+      {/* Background Image Slideshow */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentImageIndex}
+            src={heroImages[currentImageIndex]}
+            alt="Luxury wedding celebration"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+        {/* Dark overlay (no white bottom gradient) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/45 z-10" />
+      </div>
+
+      <motion.div className="w-full max-w-7xl mx-auto px-6 lg:px-12 relative z-20">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-8">
             <motion.div variants={fadeInUp} initial="hidden" animate="visible">
@@ -63,23 +94,23 @@ function Hero() {
                 Premium Event Organiser
               </span>
             </motion.div>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight text-white"
             >
               Crafting<br />
               <span className="italic text-gold">Extraordinary</span><br />
-              Celebrations
+              <span className="text-white">Celebrations</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-warm-gray text-lg lg:text-xl max-w-lg leading-relaxed"
+              className="text-white/80 text-lg lg:text-xl max-w-lg leading-relaxed"
             >
               From intimate gatherings to grand celebrations, we design and execute events that leave lasting impressions.
             </motion.p>
@@ -225,18 +256,18 @@ function BrandStory() {
 // Services Section
 function Services() {
   const services = [
-    { icon: Heart, name: 'Wedding Experiences', desc: 'Dream weddings crafted with love' },
-    { icon: Briefcase, name: 'Corporate Events', desc: 'Professional gatherings that impress' },
-    { icon: Cake, name: 'Birthday Celebrations', desc: 'Milestone moments made magical' },
-    { icon: Baby, name: 'Baby Showers', desc: 'Welcoming new beginnings beautifully' },
-    { icon: HomeIcon, name: 'House Warming', desc: 'New home celebrations with style' },
-    { icon: Gem, name: 'Engagements', desc: 'The start of forever, perfected' },
-    { icon: Sparkles, name: 'Receptions', desc: 'Grand celebrations of togetherness' },
-    { icon: Palette, name: 'Decor & Design', desc: 'Stunning visual transformations' },
-    { icon: Camera, name: 'Photography', desc: 'Capturing every precious moment' },
-    { icon: Music, name: 'Entertainment', desc: 'DJ, live music & performances' },
-    { icon: UtensilsCrossed, name: 'Catering', desc: 'Culinary experiences to savor' },
-    { icon: MapPinned, name: 'Venue Booking', desc: 'Perfect locations for every event' },
+    { icon: Cake, name: 'Birthday Celebrations', desc: 'Milestone moments made magical with custom backdrop themes', image: '/images/birthday_decor.png' },
+    { icon: Heart, name: 'Wedding Experiences', desc: 'Dream weddings crafted with love and traditional decor', image: '/images/wedding_mandap.png' },
+    { icon: Sparkles, name: 'Receptions', desc: 'Grand celebrations of togetherness and stage design', image: '/images/reception_decor.png' },
+    { icon: HomeIcon, name: 'House Warming', desc: 'Traditional Griha Pravesham ceremonies and styling', image: '/images/housewarming_decor.png' },
+    { icon: Gem, name: 'Engagements', desc: 'Vibrant ring ceremonies and Haldi setups', image: '/images/haldi_ceremony.png' },
+    { icon: Baby, name: 'Baby Showers', desc: 'Welcoming new beginnings beautifully', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800' },
+    { icon: Palette, name: 'Decor & Design', desc: 'Stunning visual transformations', image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800' },
+    { icon: Camera, name: 'Photography', desc: 'Capturing every precious candid moment', image: 'https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?auto=format&fit=crop&q=80&w=800' },
+    { icon: Music, name: 'Entertainment', desc: 'DJ, live music & sangeet performances', image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800' },
+    { icon: UtensilsCrossed, name: 'Catering', desc: 'Delicious culinary experiences to savor', image: '/images/catering_decor.png' },
+    { icon: MapPinned, name: 'Venue Booking', desc: 'Perfect premium locations for every event', image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800' },
+    { icon: Briefcase, name: 'Corporate Events', desc: 'Professional gatherings that impress', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800' },
   ];
 
   return (
@@ -261,22 +292,32 @@ function Services() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
         >
           {services.map((service, i) => (
             <motion.div
               key={service.name}
               variants={scaleIn}
-              className={`bento-card group cursor-pointer ${i === 0 ? 'sm:col-span-2 bg-charcoal text-white' : 'bg-white text-charcoal'}`}
+              className={`service-image-card group cursor-pointer ${i === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}
             >
-              <service.icon className={`w-8 h-8 mb-4 ${i === 0 ? 'text-gold' : 'text-gold'} group-hover:scale-110 transition-transform duration-300`} />
-              <h3 className={`font-display text-xl font-semibold ${i === 0 ? 'text-white' : ''}`}>
-                {service.name}
-              </h3>
-              <p className={`text-sm mt-2 ${i === 0 ? 'text-white/60' : 'text-warm-gray'}`}>
-                {service.desc}
-              </p>
-              <ArrowUpRight className={`w-5 h-5 mt-4 ${i === 0 ? 'text-gold' : 'text-gold'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              <img
+                src={service.image}
+                alt={service.name}
+                className={`w-full object-cover ${i === 0 ? 'h-full min-h-[400px]' : 'h-64'}`}
+                loading="lazy"
+              />
+              <div className={`card-content absolute bottom-0 left-0 right-0 p-5 ${i === 0 ? 'p-8' : ''}`}>
+                <service.icon className={`w-6 h-6 text-gold mb-3 group-hover:scale-110 transition-transform duration-300 ${i === 0 ? 'w-8 h-8 mb-4' : ''}`} />
+                <h3 className={`font-display font-semibold text-white ${i === 0 ? 'text-2xl' : 'text-lg'}`}>
+                  {service.name}
+                </h3>
+                <p className={`text-white/60 mt-1 ${i === 0 ? 'text-base' : 'text-sm'} group-hover:text-white/80 transition-colors duration-300`}>
+                  {service.desc}
+                </p>
+                <div className="mt-3 flex items-center gap-2 text-gold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  Learn more <ArrowUpRight className="w-4 h-4" />
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -288,12 +329,12 @@ function Services() {
 // Featured Events
 function FeaturedEvents() {
   const events = [
-    { title: 'Royal Wedding', guests: '500+', location: 'Udaipur', services: ['Decor', 'Catering', 'Photography'], image: 'https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { title: 'Tech Summit', guests: '2000+', location: 'Bengaluru', services: ['AV Setup', 'Catering', 'Management'], image: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { title: 'Dream Birthday', guests: '150+', location: 'Bengaluru', services: ['Decor', 'Entertainment', 'Cake'], image: 'https://images.pexels.com/photos/1128905/pexels-photo-1128905.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { title: 'Grand Reception', guests: '800+', location: 'Mysuru', services: ['Full Planning', 'Decor', 'Catering'], image: 'https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { title: 'Baby Shower', guests: '80+', location: 'Bengaluru', services: ['Decor', 'Photography', 'Catering'], image: 'https://images.pexels.com/photos/1194021/pexels-photo-1194021.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { title: 'House Warming', guests: '200+', location: 'Chennai', services: ['Decor', 'Catering', 'Photography'], image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'Traditional Wedding', guests: '500+', location: 'Udaipur', services: ['Decor', 'Catering', 'Photography'], image: '/images/wedding_mandap.png' },
+    { title: 'Tech Summit', guests: '2000+', location: 'Bengaluru', services: ['AV Setup', 'Catering', 'Management'], image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Butterfly Theme Birthday', guests: '150+', location: 'Bengaluru', services: ['Theme Decor', 'Photo Gallery', 'Custom Cake'], image: '/images/birthday_decor.png' },
+    { title: 'Grand Reception', guests: '800+', location: 'Mysuru', services: ['Full Planning', 'Decor', 'Catering'], image: '/images/reception_decor.png' },
+    { title: 'Haldi Ceremony', guests: '80+', location: 'Bengaluru', services: ['Decor', 'Photography', 'Catering'], image: '/images/haldi_ceremony.png' },
+    { title: 'House Warming', guests: '200+', location: 'Chennai', services: ['Decor', 'Catering', 'Photography'], image: '/images/housewarming_decor.png' },
   ];
 
   return (
@@ -328,6 +369,7 @@ function FeaturedEvents() {
                   src={event.image}
                   alt={event.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
@@ -448,7 +490,7 @@ function EventJourney() {
 
         <div className="relative">
           <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-border" />
-          
+
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
@@ -456,9 +498,8 @@ function EventJourney() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className={`relative flex items-center gap-8 mb-16 ${
-                i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              }`}
+              className={`relative flex items-center gap-8 mb-16 ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                }`}
             >
               <div className={`flex-1 ${i % 2 === 0 ? 'lg:text-right' : 'lg:text-left'} hidden lg:block`}>
                 <div className="bento-card bg-white text-charcoal inline-block">
@@ -505,7 +546,7 @@ function StatsSection() {
     <section className="py-28 px-6 lg:px-12 bg-charcoal relative overflow-hidden">
       {/* Subtle decorative gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-gold/[0.03] via-transparent to-gold/[0.02]" />
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -516,7 +557,7 @@ function StatsSection() {
         >
           <span className="text-gold/70 text-sm font-medium tracking-widest uppercase">By The Numbers</span>
         </motion.div>
-        
+
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <AnimatedStat end={1050} suffix="+" decimals={0} label="Events Delivered" />
           <AnimatedStat end={5} suffix="+" decimals={0} label="Years Experience" />
@@ -612,9 +653,8 @@ function Testimonials() {
           {testimonials.map((_, i) => (
             <div
               key={i}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                activeIndex === i ? 'w-6 bg-gold' : 'w-1.5 bg-gold/30'
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === i ? 'w-6 bg-gold' : 'w-1.5 bg-gold/30'
+                }`}
             />
           ))}
         </div>
@@ -664,9 +704,8 @@ function EventCategories() {
             <motion.div
               key={cat.name}
               variants={scaleIn}
-              className={`relative group cursor-pointer overflow-hidden rounded-2xl ${
-                i === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-[3/4]'
-              }`}
+              className={`relative group cursor-pointer overflow-hidden rounded-2xl ${i === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-[3/4]'
+                }`}
             >
               <img
                 src={cat.image}
@@ -693,7 +732,7 @@ function EventCategories() {
 // FAQ Section
 function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  
+
   const faqs = [
     { q: 'How far in advance should I book?', a: 'We recommend booking at least 3-6 months in advance for weddings and large events. For smaller celebrations, 4-6 weeks is usually sufficient. However, we always try to accommodate last-minute requests when possible.' },
     { q: 'What is your pricing structure?', a: 'Our pricing is customized based on your event requirements, scale, and preferences. We offer transparent quotes with no hidden costs. Book a consultation to receive a detailed proposal tailored to your needs.' },
@@ -807,9 +846,6 @@ function FinalCTA() {
     </section>
   );
 }
-
-// AnimatePresence import for FAQ
-import { AnimatePresence } from 'framer-motion';
 
 export default function Home() {
   return (

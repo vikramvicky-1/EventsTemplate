@@ -82,7 +82,7 @@ export default function Navigation() {
                   to={link.path}
                   className={`relative px-4 py-2 text-[0.8rem] font-medium tracking-wide uppercase transition-all duration-300 ${
                     location.pathname === link.path
-                      ? 'text-gold'
+                      ? 'text-gold font-semibold'
                       : 'text-text-secondary hover:text-gold'
                   }`}
                 >
@@ -113,7 +113,7 @@ export default function Navigation() {
               {/* Plan Your Event — desktop only */}
               <Link
                 to="/contact"
-                className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold bg-gold text-bg-primary hover:bg-gold-light rounded-full px-4 py-2 transition-all duration-300"
+                className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold bg-gold text-white hover:bg-gold-light rounded-full px-4 py-2 transition-all duration-300"
               >
                 Plan Your Event
               </Link>
@@ -145,7 +145,7 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+              className="fixed inset-0 z-40 bg-black/40 lg:hidden"
               onClick={() => setIsMobileOpen(false)}
             />
 
@@ -183,8 +183,8 @@ export default function Navigation() {
                         to={link.path}
                         className={`flex items-center justify-between py-3 px-3 rounded-lg text-[0.95rem] font-display font-semibold transition-all duration-200 ${
                           location.pathname === link.path
-                            ? 'text-gold bg-gold/[0.06]'
-                            : 'text-text-primary hover:text-gold hover:bg-white/[0.02]'
+                            ? 'text-gold bg-gold/[0.04]'
+                            : 'text-text-primary hover:text-gold hover:bg-gold/[0.03]'
                         }`}
                       >
                         {link.name}
@@ -208,7 +208,7 @@ export default function Navigation() {
                 >
                   <Link
                     to="/contact"
-                    className="flex items-center justify-center w-full bg-gold text-bg-primary font-semibold text-sm py-3 rounded-full hover:bg-gold-light transition-all duration-300"
+                    className="flex items-center justify-center w-full bg-gold text-white font-semibold text-sm py-3 rounded-full hover:bg-gold-light transition-all duration-300"
                   >
                     Plan Your Event
                   </Link>
@@ -240,7 +240,7 @@ export default function Navigation() {
                 className="px-5 py-4 border-t border-border flex-shrink-0"
               >
                 <a
-                  href="https://www.instagram.com/royaleraevents/"
+                  href="https://www.instagram.com/vibhinna_events/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 mb-3 group"
@@ -251,13 +251,13 @@ export default function Navigation() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-text-primary group-hover:text-gold transition-colors">@royaleraevents</p>
-                    <p className="text-[0.65rem] text-gold font-medium">114K Followers</p>
+                    <p className="text-xs font-semibold text-text-primary group-hover:text-gold transition-colors">@vibhinna_events</p>
+                    <p className="text-[0.65rem] text-gold font-medium">Event Organiser</p>
                   </div>
                 </a>
                 <div className="flex items-center gap-1.5 text-text-muted text-[0.65rem]">
                   <MapPin className="w-3 h-3 text-gold flex-shrink-0" />
-                  Bengaluru, Karnataka
+                  RR Nagar, Bengaluru
                 </div>
               </motion.div>
             </motion.div>

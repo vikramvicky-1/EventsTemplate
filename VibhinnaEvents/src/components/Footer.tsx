@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Youtube, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Instagram, Facebook, Youtube, Mail, Phone, MapPin, ArrowUpRight, Star } from 'lucide-react';
 import Logo from './Logo';
 
 const services = [
+  'Birthday Parties',
   'Wedding Planning',
-  'Corporate Events',
-  'Birthday Celebrations',
   'Decor & Design',
   'Photography',
-  'Catering',
+  'Corporate Events',
+  'Theme Backdrops',
 ];
 
 const quickLinks = [
@@ -29,8 +29,8 @@ export default function Footer() {
       
       <div className="relative pt-20 pb-12 px-6 lg:px-12">
         {/* Large branding watermark */}
-        <p className="font-display text-[18vw] md:text-[12rem] lg:text-[16rem] font-bold text-white/[0.015] absolute top-8 left-4 lg:left-8 select-none pointer-events-none leading-none whitespace-nowrap">
-          ROYAL ERA
+        <p className="font-display text-[18vw] md:text-[12rem] lg:text-[16rem] font-bold text-text-primary/[0.012] absolute top-8 left-4 lg:left-8 select-none pointer-events-none leading-none whitespace-nowrap">
+          VIBHINNA
         </p>
 
         {/* Top section: CTA + Instagram Highlight */}
@@ -51,7 +51,7 @@ export default function Footer() {
                 <span className="gold-shimmer italic">Extraordinary</span>
               </h3>
               <p className="text-text-secondary text-base mb-8 leading-relaxed max-w-md">
-                Transform your vision into an unforgettable celebration with Royal Era Events' premium event planning.
+                Transform your vision into an unforgettable celebration with Vibhinna Events' premium event planning.
               </p>
               <Link
                 to="/contact"
@@ -78,24 +78,24 @@ export default function Footer() {
                     </div>
                   </div>
                   <div>
-                    <p className="font-display text-lg font-bold text-text-primary">royaleraevents</p>
-                    <p className="text-text-muted text-sm">Event Planner</p>
+                    <p className="font-display text-lg font-bold text-text-primary">vibhinna_events</p>
+                    <p className="text-text-muted text-sm">Event planner</p>
                   </div>
                 </div>
 
                 {/* Stats Row */}
                 <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-border">
                   <div className="text-center">
-                    <p className="font-display text-lg font-bold text-text-primary">487</p>
-                    <p className="text-text-muted text-xs">posts</p>
+                    <p className="font-display text-lg font-bold text-text-primary">148+</p>
+                    <p className="text-text-muted text-xs">reviews</p>
                   </div>
                   <div className="text-center">
-                    <p className="font-display text-2xl font-bold gold-shimmer">114K</p>
-                    <p className="text-gold text-xs font-semibold">followers</p>
+                    <p className="font-display text-2xl font-bold gold-shimmer">5.0 ★</p>
+                    <p className="text-gold text-xs font-semibold">Google Rating</p>
                   </div>
                   <div className="text-center">
-                    <p className="font-display text-lg font-bold text-text-primary">3</p>
-                    <p className="text-text-muted text-xs">following</p>
+                    <p className="font-display text-lg font-bold text-text-primary">2020</p>
+                    <p className="text-text-muted text-xs">since</p>
                   </div>
                 </div>
 
@@ -103,22 +103,22 @@ export default function Footer() {
                 <div className="space-y-2 mb-6">
                   <p className="text-text-primary font-semibold text-sm">We Bring Your Dreams into Reality!</p>
                   <ul className="text-text-secondary text-sm space-y-1">
-                    <li>• Trusted by 3000+ Clients</li>
-                    <li>• Since 2020</li>
-                    <li>• Birthdays to Weddings!</li>
-                    <li>• Photography, Catering, Artists etc.</li>
+                    <li>• Creative decoration & birthday party experts</li>
+                    <li>• Trusted by hundreds of happy clients</li>
+                    <li>• Traditional Decors to Modern Concepts</li>
+                    <li>• High Quality at Value for Money</li>
                   </ul>
                   <p className="text-text-secondary text-sm flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-gold" /> Bangalore
+                    <MapPin className="w-3.5 h-3.5 text-gold" /> Rajarajeshwari Nagar, Bangalore
                   </p>
                 </div>
 
                 {/* Follow Button */}
                 <a
-                  href="https://www.instagram.com/royaleraevents/"
+                  href="https://www.instagram.com/vibhinna_events/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center luxury-btn luxury-btn-primary py-3 text-sm"
+                  className="block w-full text-center luxury-btn luxury-btn-primary py-3 text-sm text-white"
                 >
                   <Instagram className="w-4 h-4" />
                   Follow on Instagram
@@ -137,7 +137,7 @@ export default function Footer() {
                 <li key={service}>
                   <Link
                     to="/services"
-                    className="text-text-muted hover:text-gold transition-colors duration-300 text-sm"
+                    className="text-text-secondary hover:text-gold transition-colors duration-300 text-sm"
                   >
                     {service}
                   </Link>
@@ -153,7 +153,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-text-muted hover:text-gold transition-colors duration-300 text-sm"
+                    className="text-text-secondary hover:text-gold transition-colors duration-300 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -167,22 +167,23 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-1" />
-                <span className="text-text-muted text-sm">
-                  105, Vasanthapura Main Rd,<br />
-                  opp. SBI Bank, Bikasipura,<br />
-                  Bengaluru, Karnataka 560062
+                <span className="text-text-secondary text-sm leading-relaxed">
+                  Block 3, 277A, Dr H. Srinivasaiah Rd,<br />
+                  Remco Bhel Layout, Stage 3,<br />
+                  Rajarajeshwari Nagar, Bengaluru,<br />
+                  Karnataka 560098
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-                <a href="tel:+917676789839" className="text-text-muted hover:text-gold transition-colors duration-300 text-sm">
+                <a href="tel:+917676789839" className="text-text-secondary hover:text-gold transition-colors duration-300 text-sm">
                   +91 76767 89839
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />
-                <a href="mailto:hello@royaleraevents.com" className="text-text-muted hover:text-gold transition-colors duration-300 text-sm">
-                  hello@royaleraevents.com
+                <a href="mailto:hello@vibhinnaevents.com" className="text-text-secondary hover:text-gold transition-colors duration-300 text-sm">
+                  hello@vibhinnaevents.com
                 </a>
               </li>
             </ul>
@@ -192,22 +193,22 @@ export default function Footer() {
             <h4 className="font-display text-sm font-semibold mb-6 text-gold tracking-wider uppercase">Follow Us</h4>
             <div className="flex gap-3 mb-6">
               <a
-                href="https://www.instagram.com/royaleraevents/"
+                href="https://www.instagram.com/vibhinna_events/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-secondary hover:bg-gold hover:text-bg-primary hover:border-gold transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-secondary hover:bg-gold hover:text-white hover:border-gold transition-all duration-300"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-secondary hover:bg-gold hover:text-bg-primary hover:border-gold transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-secondary hover:bg-gold hover:text-white hover:border-gold transition-all duration-300"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-secondary hover:bg-gold hover:text-bg-primary hover:border-gold transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-secondary hover:bg-gold hover:text-white hover:border-gold transition-all duration-300"
               >
                 <Youtube className="w-4 h-4" />
               </a>
@@ -221,7 +222,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="relative z-10 max-w-7xl mx-auto border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text-muted text-sm">
-            © 2026 Royal Era Events. All rights reserved.
+            © 2026 Vibhinna Events. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-text-muted hover:text-gold transition-colors duration-300 text-sm">
