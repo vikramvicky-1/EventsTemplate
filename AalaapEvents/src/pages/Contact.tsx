@@ -35,15 +35,14 @@ export default function Contact() {
 
   return (
     <main>
-      {/* Hero */}
-      <section className="pt-28 lg:pt-32 pb-16 px-6 lg:px-12 bg-bg-primary">
+      <section className="pt-36 sm:pt-40 lg:pt-48 pb-16 px-6 lg:px-12 bg-bg-primary">
         <div className="max-w-7xl mx-auto">
           <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
             <span className="text-gold text-xs font-medium tracking-[0.25em] uppercase flex items-center gap-3">
               <span className="w-8 h-px bg-gold" />
               Get in Touch
             </span>
-            <h1 className="font-display text-5xl lg:text-7xl font-bold mt-4 leading-tight text-text-primary">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold mt-4 leading-tight text-text-primary">
               Let's Co-create Your<br />
               <span className="gold-shimmer italic">Celebration Melody</span>
             </h1>

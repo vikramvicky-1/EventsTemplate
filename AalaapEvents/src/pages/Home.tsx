@@ -94,7 +94,7 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C081A]/90 via-[#0C081A]/70 to-transparent z-10" />
       </div>
       
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-28 lg:pt-32 pb-16">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-36 sm:pt-40 lg:pt-48 pb-16">
         <div className="max-w-3xl">
           <motion.div variants={fadeInUp} initial="hidden" animate="visible">
             <span className="inline-flex items-center gap-2 text-gold text-xs font-medium tracking-[0.25em] uppercase mb-8">
@@ -107,7 +107,7 @@ function Hero() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight"
+            className="font-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight"
           >
             Orchestrating<br />
             <span className="gold-shimmer italic">Extraordinary</span><br />
