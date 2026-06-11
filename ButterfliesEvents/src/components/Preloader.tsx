@@ -1,18 +1,23 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { usePreloader } from '../context/PreloaderContext';
 
 export default function Preloader() {
-  const [isVisible, setIsVisible] = useState(true);
+  const { isComplete, complete } = usePreloader();
+  const [isVisible, setIsVisible] = useState(!isComplete);
 
   useEffect(() => {
+    if (isComplete) return;
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 2600);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isComplete]);
+
+  if (isComplete) return null;
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={complete}>
       {isVisible && (
         <motion.div
           initial={{ opacity: 1 }}

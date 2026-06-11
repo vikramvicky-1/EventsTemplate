@@ -10,11 +10,17 @@ import {
   CheckCircle2, Quote
 } from 'lucide-react';
 import { useCountUp } from '../lib/useCountUp';
+import { usePreloader } from '../context/PreloaderContext';
 
 // Animation variants
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+};
+
+const revealUp: Variants = {
+  hidden: { y: "110%", opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } }
 };
 
 const staggerContainer: Variants = {
@@ -48,6 +54,7 @@ function TrustMarquee() {
 
 // Hero Section with Slideshow Background
 function Hero() {
+  const { isComplete } = usePreloader();
   const heroImages = [
     '/images/wedding_mandap.png',
     '/images/birthday_decor.png',
@@ -88,7 +95,7 @@ function Hero() {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-28 lg:pt-32 pb-16">
         <motion.div
           initial="hidden"
-          animate="visible"
+          animate={isComplete ? "visible" : "hidden"}
           variants={{
             hidden: {},
             visible: {
@@ -107,25 +114,34 @@ function Hero() {
             </span>
           </motion.div>
           
-          <motion.h1
-            variants={fadeInUp}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight"
-          >
-            <span className="text-white">Crafting</span><br />
-            <span className="gold-shimmer italic">Extraordinary</span><br />
-            <span className="text-white">Celebrations</span>
-          </motion.h1>
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight">
+            <div className="overflow-hidden py-1">
+              <motion.span className="block text-white" variants={revealUp}>
+                Crafting
+              </motion.span>
+            </div>
+            <div className="overflow-hidden py-1">
+              <motion.span className="block gold-shimmer italic" variants={revealUp}>
+                Extraordinary
+              </motion.span>
+            </div>
+            <div className="overflow-hidden py-1">
+              <motion.span className="block text-white" variants={revealUp}>
+                Celebrations
+              </motion.span>
+            </div>
+          </h1>
 
           <motion.p
             variants={fadeInUp}
-            className="text-white/70 text-lg lg:text-xl max-w-lg leading-relaxed mt-8"
+            className="text-white/70 text-lg lg:text-xl max-w-lg leading-relaxed mt-4"
           >
             From intimate gatherings to grand celebrations, we design and execute events that leave lasting impressions. Trusted by 1000+ happy clients.
           </motion.p>
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-wrap gap-4 mt-10"
+            className="flex flex-wrap gap-4 mt-6"
           >
             <Link to="/contact" className="luxury-btn luxury-btn-primary group">
               Plan Your Event
@@ -139,7 +155,7 @@ function Hero() {
           {/* Mini Stats */}
           <motion.div
             variants={fadeInUp}
-            className="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap sm:gap-10 mt-10 pt-6 border-t border-white/10"
+            className="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap sm:gap-10 mt-6 pt-4 border-t border-white/10"
           >
             <div>
               <p className="font-display text-2xl sm:text-3xl font-bold gold-gradient">1000+</p>

@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Phone, MessageCircle, Instagram, MapPin } from 'lucide-react';
+import { usePreloader } from '../context/PreloaderContext';
 import Logo from './Logo';
+
+const headerVariants: Variants = {
+  hidden: { y: -100 },
+  visible: { y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+};
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -42,6 +48,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
+  const { isComplete } = usePreloader();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -62,9 +69,9 @@ export default function Navigation() {
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        initial="hidden"
+        animate={isComplete ? "visible" : "hidden"}
+        variants={headerVariants}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled ? 'glass-nav-scrolled' : 'glass-nav'
         }`}
@@ -73,9 +80,10 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
             {/* Logo with fade-in and slide-right animation */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.15, ease: "easeOut" } }
+              }}
             >
               <Logo size="md" />
             </motion.div>
@@ -85,13 +93,14 @@ export default function Navigation() {
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.path}
-                  initial={{ opacity: 0, y: -15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.06, ease: "easeOut" }}
+                  variants={{
+                    hidden: { opacity: 0, y: -15 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 + idx * 0.06, ease: "easeOut" } }
+                  }}
                 >
                   <Link
                     to={link.path}
-                    className={`relative px-4 py-2 text-[0.8rem] font-medium tracking-wide uppercase transition-all duration-300 ${
+                    className={`relative px-4 py-2 text-[0.8rem] font-medium tracking-wide uppercase transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] inline-block ${
                       location.pathname === link.path
                         ? 'text-gold'
                         : 'text-text-secondary hover:text-gold'
@@ -112,15 +121,16 @@ export default function Navigation() {
 
             {/* Right side with fade-in and slide-left animation */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
+              variants={{
+                hidden: { opacity: 0, x: 20 },
+                visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.45, ease: "easeOut" } }
+              }}
               className="flex items-center gap-2"
             >
               {/* Call — visible on all screens (circular icon button on mobile, text on tablet+) */}
               <a
                 href="tel:+919176707070"
-                className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-medium text-gold hover:text-gold-dark border border-gold hover:border-gold-dark rounded-full w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-medium text-gold hover:text-gold-dark border border-gold hover:border-gold-dark rounded-full w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-gold/10"
                 aria-label="Call Us"
               >
                 <Phone className="w-3.5 h-3.5" />
@@ -130,7 +140,7 @@ export default function Navigation() {
               {/* Plan Your Event — desktop only */}
               <Link
                 to="/contact"
-                className="hidden lg:inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold bg-gold text-white hover:bg-gold-light rounded-full px-5 py-2.5 transition-all duration-300"
+                className="hidden lg:inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold bg-gold text-white hover:bg-gold-light rounded-full px-5 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-gold/25"
               >
                 Plan Your Event
               </Link>

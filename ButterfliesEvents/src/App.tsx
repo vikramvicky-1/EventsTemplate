@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { PreloaderProvider } from './context/PreloaderContext';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
@@ -12,22 +13,24 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Preloader />
-      <div className="min-h-screen bg-bg-primary">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <PreloaderProvider>
+      <Router>
+        <ScrollToTop />
+        <Preloader />
+        <div className="min-h-screen bg-bg-primary">
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </PreloaderProvider>
   );
 }
 

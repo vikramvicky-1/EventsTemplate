@@ -172,8 +172,16 @@ body {
   font-weight: 600;
   font-size: 0.9375rem;
   letter-spacing: 0.025em;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+}
+
+.luxury-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.luxury-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .luxury-btn-primary {
@@ -185,8 +193,7 @@ body {
 .luxury-btn-primary:hover {
   background: var(--color-accent-dark);
   border-color: var(--color-accent-dark);
-  box-shadow: 0 4px 20px rgba(232, 113, 43, 0.3);
-  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -5px rgba(232, 113, 43, 0.35);
 }
 
 .luxury-btn-secondary {
@@ -198,7 +205,7 @@ body {
 .luxury-btn-secondary:hover {
   background: rgba(232, 113, 43, 0.06);
   border-color: var(--color-accent);
-  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -5px rgba(232, 113, 43, 0.1);
 }
 
 .luxury-btn-white {
@@ -208,8 +215,9 @@ body {
 }
 
 .luxury-btn-white:hover {
-  border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.1);
 }
 
 /* ============================================
